@@ -18,11 +18,12 @@ class CarAdmin(admin.ModelAdmin):
 class DriverAdmin(UserAdmin):
     model = Driver
     fieldsets = UserAdmin.fieldsets + (
-        ("Additional Info", {"fields": ("license_number",)}),
+        ("Additional info", {"fields": ("license_number",)}),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
-        ("Additional Info", {"fields": ("license_number",)}),
+        ("Additional info", {"fields": ("license_number",)}),
     )
+    list_display = ("username", "email", "license_number")
 
 
 admin.site.register(Driver, DriverAdmin)
